@@ -1198,4 +1198,30 @@ body.presentation .map-stage,body.presentation #map{height:calc(100vh - 126px)!i
 @media(max-width:420px){body.presentation .map-top{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;grid-template-rows:auto auto!important;}body.presentation .map-quick-search{grid-column:2!important;min-width:0!important;width:100%!important;}body.presentation .map-label-toggle{grid-column:1/-1!important;justify-self:start!important;}body.presentation .map-quick-search input{min-width:0!important;}}
 </style>
 
+
+<style id="cloudViewerResponsiveDevicesV13">
+/* Viewer responsive layout for desktop, tablet and phone */
+body.cloud-viewer.presentation header{box-sizing:border-box;padding:7px clamp(8px,1.5vw,18px)!important;min-height:66px!important;}
+body.cloud-viewer.presentation header .header-brand{gap:clamp(6px,1vw,12px)!important;}
+body.cloud-viewer.presentation header .brand-logo{width:clamp(42px,5vw,62px)!important;max-height:48px!important;}
+body.cloud-viewer.presentation header .header-title{min-width:0!important;}
+body.cloud-viewer.presentation header .header-title h1{font-size:clamp(12px,1.15vw,16px)!important;overflow-wrap:anywhere!important;}
+body.cloud-viewer.presentation header .header-title p{font-size:clamp(8px,.75vw,10px)!important;overflow-wrap:anywhere!important;}
+body.cloud-viewer.presentation .map-top{box-sizing:border-box!important;width:100%!important;display:grid!important;grid-template-columns:auto minmax(220px,1fr) auto!important;grid-template-rows:auto!important;gap:clamp(5px,1vw,10px)!important;padding:6px clamp(7px,1.2vw,14px)!important;align-items:center!important;}
+body.cloud-viewer.presentation #floatingExportScoring{white-space:nowrap!important;min-height:30px!important;padding:5px 8px!important;font-size:clamp(9px, .85vw, 11px)!important;}
+body.cloud-viewer.presentation .map-quick-search{min-width:0!important;width:100%!important;max-width:none!important;display:flex!important;gap:5px!important;}
+body.cloud-viewer.presentation .map-quick-search .searchbox{min-width:0!important;flex:1 1 auto!important;}
+body.cloud-viewer.presentation .map-quick-search input{box-sizing:border-box!important;width:100%!important;min-width:0!important;height:31px!important;font-size:clamp(10px,1vw,12px)!important;}
+body.cloud-viewer.presentation .map-quick-search button{height:31px!important;white-space:nowrap!important;padding:0 10px!important;font-size:clamp(9px, .85vw, 11px)!important;}
+body.cloud-viewer.presentation .map-label-toggle{font-size:clamp(9px,.9vw,11px)!important;white-space:nowrap!important;margin:0!important;}
+body.cloud-viewer.presentation .map-stage{height:auto!important;flex:1 1 0!important;min-height:0!important;width:100%!important;}
+body.cloud-viewer.presentation #map{height:100%!important;min-height:0!important;width:100%!important;}
+body.cloud-viewer.presentation .caption-list{box-sizing:border-box!important;max-width:calc(100vw - 16px)!important;left:8px!important;right:8px!important;bottom:8px!important;min-height:44px!important;max-height:60px!important;overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;flex-wrap:nowrap!important;touch-action:pan-x!important;}
+body.cloud-viewer.presentation .caption-drag-handle{flex:0 0 auto!important;touch-action:none!important;}
+body.cloud-viewer.presentation #viewerMeasureControls{top:82px!important;left:8px!important;right:auto!important;bottom:auto!important;}
+@media(max-width:900px){body.cloud-viewer.presentation header{min-height:58px!important;}body.cloud-viewer.presentation .map-top{grid-template-columns:auto minmax(0,1fr) auto!important;gap:6px!important;}body.cloud-viewer.presentation .map-quick-search{max-width:none!important;}body.cloud-viewer.presentation .map-label-toggle{justify-self:end!important;}}
+@media(max-width:700px){body.cloud-viewer.presentation header{min-height:56px!important;padding:5px 7px!important;}body.cloud-viewer.presentation header .brand-logo{width:42px!important;max-height:38px!important;}body.cloud-viewer.presentation header .header-title h1{font-size:12px!important;}body.cloud-viewer.presentation header .header-title p{font-size:8px!important;}body.cloud-viewer.presentation .map-top{grid-template-columns:auto auto!important;grid-template-rows:auto auto!important;gap:5px 7px!important;padding:6px 7px!important;}body.cloud-viewer.presentation #floatingExportScoring{grid-column:1!important;grid-row:1!important;}body.cloud-viewer.presentation .map-label-toggle{grid-column:2!important;grid-row:1!important;justify-self:end!important;}body.cloud-viewer.presentation .map-quick-search{grid-column:1/-1!important;grid-row:2!important;width:100%!important;}body.cloud-viewer.presentation .map-quick-search input{height:30px!important;}body.cloud-viewer.presentation .map-quick-search button{height:30px!important;}body.cloud-viewer.presentation .caption-list{left:5px!important;right:5px!important;bottom:5px!important;max-width:calc(100vw - 10px)!important;min-height:40px!important;max-height:50px!important;padding:3px 4px!important;gap:3px!important;}body.cloud-viewer.presentation .caption-item{font-size:8px!important;padding:3px 5px!important;}body.cloud-viewer.presentation #viewerMeasureControls{top:76px!important;left:6px!important;}body.cloud-viewer.presentation .leaflet-control-zoom{margin-top:6px!important;margin-left:6px!important;}}
+@media(max-width:380px){body.cloud-viewer.presentation header .brand-logo{width:34px!important;}body.cloud-viewer.presentation header .header-title h1{font-size:11px!important;}body.cloud-viewer.presentation header .header-title p{font-size:7px!important;}body.cloud-viewer.presentation #floatingExportScoring{font-size:8px!important;padding:4px 6px!important;min-height:27px!important;}body.cloud-viewer.presentation .map-label-toggle{font-size:8px!important;}body.cloud-viewer.presentation .map-quick-search button{padding:0 7px!important;}}
+</style>
+
 </body></html>
