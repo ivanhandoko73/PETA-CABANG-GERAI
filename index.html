@@ -777,6 +777,18 @@ async function makeViewerFile(mode){
       html=html.replace('<scr'+'ipt src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></scr'+'ipt>','<scr'+'ipt>'+leafletJs+'</scr'+'ipt>');
       html=html.replace('window.__EXPORTED_PROJECT__=', 'window.__OFFLINE_VIEWER__=true;window.__OFFLINE_TILES__=null;\nwindow.__EXPORTED_PROJECT__=');
       html=html.replace('const EMBEDDED_ADMIN_DATA = window.__EMBEDDED_ADMIN_DATA__ || null;','window.__EMBEDDED_ADMIN_DATA__='+JSON.stringify(admin)+';\nconst EMBEDDED_ADMIN_DATA = window.__EMBEDDED_ADMIN_DATA__ || null;');
+    }else{
+      // Viewer ONLINE: embed the current layer plus district data (the default map layer).
+      // This makes the most-used layer available immediately on mobile, without waiting for BIG.
+      const levelsToEmbed=[...new Set(['district',currentLevel])];
+      const admin={};
+      for(const level of levelsToEmbed){
+        status('Menanam data batas wilayah ke Viewer Online: '+(level==='city'?'kabupaten/kota':level==='district'?'kecamatan':'kelurahan/desa')+'…');
+        const raw=await queryLayer(level);
+        admin[level]=raw.filter(targetFeature);
+        if(!admin[level].length)throw new Error('Data geometri '+level+' tidak ditemukan.');
+      }
+      html=html.replace('const EMBEDDED_ADMIN_DATA = window.__EMBEDDED_ADMIN_DATA__ || null;','window.__EMBEDDED_ADMIN_DATA__='+JSON.stringify(admin)+';\nconst EMBEDDED_ADMIN_DATA = window.__EMBEDDED_ADMIN_DATA__ || null;');
     }
     status('Membuat file HTML '+(online?'online':'offline')+'…');
     const blob=new Blob([html],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
