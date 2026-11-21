@@ -1224,4 +1224,30 @@ body.cloud-viewer.presentation #viewerMeasureControls{top:82px!important;left:8p
 @media(max-width:380px){body.cloud-viewer.presentation header .brand-logo{width:34px!important;}body.cloud-viewer.presentation header .header-title h1{font-size:11px!important;}body.cloud-viewer.presentation header .header-title p{font-size:7px!important;}body.cloud-viewer.presentation #floatingExportScoring{font-size:8px!important;padding:4px 6px!important;min-height:27px!important;}body.cloud-viewer.presentation .map-label-toggle{font-size:8px!important;}body.cloud-viewer.presentation .map-quick-search button{padding:0 7px!important;}}
 </style>
 
+
+<style id="mobileCloudViewerLegendFix">
+/* FIX: ensure legend stays visible above mobile browser safe-area */
+@media(max-width:700px){
+  body.cloud-viewer.presentation .caption-list{
+    position:fixed!important; z-index:99999!important;
+    left:5px!important; right:5px!important; width:auto!important; max-width:none!important;
+    top:auto!important; bottom:calc(8px + env(safe-area-inset-bottom, 0px))!important;
+    display:flex!important; visibility:visible!important; opacity:1!important;
+    min-height:40px!important; max-height:54px!important;
+    box-sizing:border-box!important; background:rgba(255,255,255,.97)!important;
+    border:1px solid #cbd5df!important; border-radius:8px!important;
+    overflow-x:auto!important; overflow-y:hidden!important;
+    flex-wrap:nowrap!important; align-items:center!important; justify-content:flex-start!important;
+    padding:4px 5px!important; gap:4px!important;
+    pointer-events:auto!important; -webkit-overflow-scrolling:touch!important;
+  }
+  body.cloud-viewer.presentation .caption-item{
+    display:inline-flex!important; flex:0 0 auto!important; visibility:visible!important; opacity:1!important;
+    font-size:9px!important; padding:4px 6px!important; white-space:nowrap!important;
+  }
+  body.cloud-viewer.presentation .caption-reset,
+  body.cloud-viewer.presentation .caption-drag-handle{display:inline-flex!important;flex:0 0 auto!important;}
+}
+</style>
+
 </body></html>
