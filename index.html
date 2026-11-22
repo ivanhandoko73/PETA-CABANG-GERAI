@@ -1208,7 +1208,9 @@ async function cloudViewerStart(id){document.body.classList.add('cloud-viewer','
 requestAnimationFrame(()=>{regionLayer.setStyle(styleFeature);map.invalidateSize({pan:false});renderMarkers();renderArrows();});
 setTimeout(()=>{regionLayer.setStyle(styleFeature);map.invalidateSize({pan:false});renderMarkers();renderArrows();},450);
 cloudStatus('Viewer');}catch(e){console.error(e);cloudStatus('Viewer gagal dimuat: '+e.message);alert('Viewer Cloud tidak dapat dimuat. Periksa izin baca publik pada tabel map_projects.');}}
-(async()=>{if(!cloudClient){cloudStatus('Cloud tidak tersedia');return;}const viewerId=new URLSearchParams(location.search).get('viewer');if(viewerId){await cloudViewerStart(viewerId);return;}const {data:{session}}=await cloudClient.auth.getSession();cloudControls(!!session);if(session)cloudStatus('Sesi Admin aktif');})();
+// Default Vercel landing page opens the published Viewer. Admin remains available with ?admin=1.
+const DEFAULT_VERCEL_VIEWER_ID='b48eef0b-938f-469c-8f91-07f6a396124c';
+(async()=>{if(!cloudClient){cloudStatus('Cloud tidak tersedia');return;}const params=new URLSearchParams(location.search);const requestedViewer=params.get('viewer');const isVercelLanding=location.hostname==='ivan-petacabang.vercel.app'&&!params.has('admin');const viewerId=requestedViewer||(isVercelLanding?DEFAULT_VERCEL_VIEWER_ID:null);if(viewerId){await cloudViewerStart(viewerId);return;}const {data:{session}}=await cloudClient.auth.getSession();cloudControls(!!session);if(session)cloudStatus('Sesi Admin aktif');})();
 
 // Recalculate Leaflet sizing after device rotation / viewport changes.
 window.addEventListener('resize',()=>{if(typeof map!=='undefined')setTimeout(()=>map.invalidateSize(),150);});
